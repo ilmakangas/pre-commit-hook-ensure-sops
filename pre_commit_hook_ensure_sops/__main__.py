@@ -56,7 +56,7 @@ def check_file(filename):
         except ParserError:
             # All sops encrypted files are valid JSON or YAML
             return False, f"{filename}: Not valid JSON or YAML, is not properly encrypted"
-        except JSONDecodeError:
+        except json.decoder.JSONDecodeError:
             # All sops encrypted files are valid JSON or YAML
             return False, f"{filename}: Not valid JSON, is not properly encrypted"
     if 'sops' not in doc:
